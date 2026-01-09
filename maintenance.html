@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Maintenance | Lucky Tech Hub</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="css/maintenance.css">
+
+</head>
+
+<body>
+
+<div class="maintenance">
+  <img src="assets/logo.png" class="logo" alt="Lucky Tech Hub">
+
+  <h1>🚧 Site Under Maintenance</h1>
+  <p>We’re improving your experience.<br>Please check back soon.</p>
+
+  <div class="timer">
+    <div class="time-box"><span id="h">00</span>Hours</div>
+    <div class="time-box"><span id="m">00</span>Minutes</div>
+    <div class="time-box"><span id="s">00</span>Seconds</div>
+  </div>
+  
+  
+    
+<!-- Example HTML for timer display -->
+<div class="timer">
+  <h1>Site Under Maintenance</h1>
+  <p>We'll be back in:</p>
+  <div class="timer">
+    <span id="h">00</span> : 
+    <span id="m">00</span> : 
+    <span id="s">00</span>
+  </div>
+</div>
+
+  <footer>© 2026 Lucky Tech Hub • All rights reserved</footer>
+</div>
+
+
+
+
+
+<script>
+/* ===============================
+   MAINTENANCE PAGE TIMER & GUARD
+   =============================== */
+(function () {
+  const settings = JSON.parse(localStorage.getItem("siteSettings"));
+  const now = Date.now();
+
+  // ❌ Redirect if maintenance not active or over
+  if (!settings || !settings.maintenance || !settings.maintenanceEnd || now >= settings.maintenanceEnd) {
+    location.href = "index.html";
+    return;
+  }
+
+  // ✅ Admin bypass
+  const isAdmin =
+    localStorage.getItem("isLoggedIn") === "true" ||
+    localStorage.getItem("adminLoggedIn") === "true";
+  if (isAdmin) {
+    location.href = "index.html";
+    return;
+  }
+
+  // Timer elements
+  const hEl = document.getElementById("h");
+  const mEl = document.getElementById("m");
+  const sEl = document.getElementById("s");
+
+  const end = Number(settings.maintenanceEnd);
+
+  function updateTimer() {
+    const diff = end - Date.now();
+
+    // ❌ Maintenance over: update settings and redirect
+    if (diff <= 0) {
+      settings.maintenance = false;
+      settings.maintenanceEnd = null;
+      localStorage.setItem("siteSettings", JSON.stringify(settings));
+      clearInterval(timer);
+      location.href = "index.html";
+      return;
+    }
+
+    // ✅ Update countdown display
+    if (hEl && mEl && sEl) {
+      hEl.textContent = String(Math.floor(diff / 3600000)).padStart(2, "0");
+      mEl.textContent = String(Math.floor((diff % 3600000) / 60000)).padStart(2, "0");
+      sEl.textContent = String(Math.floor((diff % 60000) / 1000)).padStart(2, "0");
+    }
+  }
+
+  const timer = setInterval(updateTimer, 1000);
+  updateTimer();
+})();
+</script>
+
+
+
+  <script type="module" src="js/firebase.js"></script>
+</body>
+</html>

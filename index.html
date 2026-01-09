@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lucky Tech Hub</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="images/favicon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header / Navbar -->
+  <header>
+  
+    <div class="logo">
+      <img src="images/logo.png" alt="Lucky Tech Hub Logo">
+    </div>
+    <nav id="navbar">
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="tech-ideas.html">Tech Ideas</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html" class="admin-btn">Admin</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Lucky Tech Hub</h1>
+      <p>Innovating Ideas. Empowering Technology.</p>
+      <a href="tech-ideas.html" class="btn">Explore Ideas</a>
+      <video src="images/intro.mp4" autoplay muted loop class="hero-video"></video>
+    </div>
+  </section>
+
+  <!-- Featured Tech Ideas -->
+  <section class="featured-ideas">
+    <div class="container">
+      <h2>Featured Tech Ideas</h2>
+      <div class="cards-container" id="featuredIdeas">
+        <!-- Placeholder cards, dynamic content from admin -->
+        <div class="card">
+          <img src="images/ai.jpg" alt="AI Assistant">
+          <h3>AI Assistant</h3>
+          <p>An intelligent assistant for automating repetitive tasks and improving productivity.</p>
+          <p><strong>Category:</strong> AI</p>
+        </div>
+        <div class="card">
+          <img src="images/web3.jpg" alt="Web 3.0 Portal">
+          <h3>Web 3.0 Portal</h3>
+          <p>Decentralized web platform that enables secure peer-to-peer transactions and data ownership.</p>
+          <p><strong>Category:</strong> Web</p>
+        </div>
+        <div class="card">
+          <img src="images/mobile.jpg" alt="Mobile Health App">
+          <h3>Mobile Health App</h3>
+          <p>A mobile application that monitors health metrics, provides alerts, and suggests healthy routines.</p>
+          <p><strong>Category:</strong> Mobile</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories -->
+<section class="categories">
+  <div class="container">
+    <h2>Explore Categories</h2>
+    <p class="section-intro">Discover innovative technology areas and explore the latest ideas, projects, and solutions in each domain.</p>
+    
+    <div class="category-cards">
+      <div class="card">
+        <div class="card-header">
+          <i class="fas fa-robot fa-2x"></i>
+          <h3>Artificial Intelligence (AI)</h3>
+        </div>
+        <div class="card-body">
+          <p>AI involves creating intelligent systems that can learn, adapt, and perform tasks autonomously. From machine learning to robotics, AI is transforming industries globally.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <i class="fas fa-globe fa-2x"></i>
+          <h3>Web Development</h3>
+        </div>
+        <div class="card-body">
+          <p>Design and build modern websites, web apps, and portals using cutting-edge technologies like React, Next.js, and progressive web apps for seamless user experiences.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <i class="fas fa-mobile-alt fa-2x"></i>
+          <h3>Mobile Applications</h3>
+        </div>
+        <div class="card-body">
+          <p>Develop Android and iOS apps for various purposes including productivity, health, gaming, and communication, ensuring responsive and intuitive mobile experiences.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <i class="fas fa-shield-alt fa-2x"></i>
+          <h3>Cybersecurity</h3>
+        </div>
+        <div class="card-body">
+          <p>Protect digital assets, networks, and systems from threats and vulnerabilities. Learn about ethical hacking, penetration testing, and security best practices.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <i class="fas fa-cloud fa-2x"></i>
+          <h3>Cloud Computing</h3>
+        </div>
+        <div class="card-body">
+          <p>Explore cloud solutions for scalable storage, computing, and services. Learn platforms like AWS, Azure, and Google Cloud for deploying modern applications.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <i class="fas fa-lightbulb fa-2x"></i>
+          <h3>Startup & Innovation</h3>
+        </div>
+        <div class="card-body">
+          <p>Ideas for new businesses and technology innovations. Focus on entrepreneurship, product design, and building solutions that solve real-world problems.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- Latest Updates / Projects -->
+  <section class="updates">
+    <div class="container">
+      <h2>Latest Projects & Updates</h2>
+      <div id="latestUpdates" class="cards-container">
+        <!-- Sample cards, dynamic content from admin -->
+        <div class="card">
+          <img src="images/cloud-project.jpg" alt="Cloud Dashboard">
+          <h3>Cloud Dashboard</h3>
+          <p>Real-time monitoring platform for cloud services, enabling analytics and alerts.</p>
+          <p><strong>Status:</strong> In Progress</p>
+        </div>
+        <div class="card">
+          <img src="images/ai-project.jpg" alt="AI Chatbot">
+          <h3>AI Chatbot</h3>
+          <p>Automated customer support chatbot powered by machine learning and NLP.</p>
+          <p><strong>Status:</strong> Live</p>
+        </div>
+        <div class="card">
+          <img src="images/mobile-project.jpg" alt="Mobile Game App">
+          <h3>Mobile Game App</h3>
+          <p>Fun and engaging mobile game designed to improve problem-solving skills.</p>
+          <p><strong>Status:</strong> Concept</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2026 Lucky Tech Hub</p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </footer>
+  
+  
+  
+ <script type="module" src="js/main.js"></script>
+
+  <script>
+  
+  
+  
+    // Render dynamic featured ideas
+    const featuredIdeas = JSON.parse(localStorage.getItem('techIdeas')) || [
+      {title:'AI Assistant',desc:'Intelligent task automation assistant.',img:'images/ai.jpg',category:'AI'},
+      {title:'Web 3.0 Portal',desc:'Secure decentralized web app.',img:'images/web3.jpg',category:'Web'},
+      {title:'Mobile Health App',desc:'Mobile app for health tracking.',img:'images/mobile.jpg',category:'Mobile'}
+    ];
+
+    const featuredContainer = document.getElementById('featuredIdeas');
+    featuredContainer.innerHTML = '';
+    featuredIdeas.forEach(idea=>{
+      featuredContainer.innerHTML += `
+        <div class="card">
+          <img src="${idea.img}" alt="${idea.title}">
+          <h3>${idea.title}</h3>
+          <p>${idea.desc}</p>
+          <p><strong>Category:</strong> ${idea.category}</p>
+        </div>`;
+    });
+
+    // Render latest projects dynamically
+    const latestProjects = JSON.parse(localStorage.getItem('projects')) || [
+      {title:'AI Chatbot',desc:'Automated support chatbot.',img:'images/ai-project.jpg',status:'Live'},
+      {title:'Cloud Dashboard',desc:'Monitor cloud services.',img:'images/cloud-project.jpg',status:'In Progress'},
+      {title:'Mobile Game App',desc:'Engaging mobile game.',img:'images/mobile-project.jpg',status:'Concept'}
+    ];
+
+    const updatesContainer = document.getElementById('latestUpdates');
+    updatesContainer.innerHTML = '';
+    latestProjects.forEach(project=>{
+      updatesContainer.innerHTML += `
+        <div class="card">
+          <img src="${project.img}" alt="${project.title}">
+          <h3>${project.title}</h3>
+          <p>${project.desc}</p>
+          <p><strong>Status:</strong> ${project.status}</p>
+        </div>`;
+    });
+    
+    
+    
+    const cards = document.querySelectorAll('.category-cards .card');
+
+cards.forEach(card => {
+  card.addEventListener('click', () => {
+    // Collapse other cards
+    cards.forEach(c => {
+      if(c !== card) c.classList.remove('active');
+    });
+    // Toggle current card
+    card.classList.toggle('active');
+  });
+});
+
+    
+    
+    
+  </script>
+  
+
+
+</body>
+</html>

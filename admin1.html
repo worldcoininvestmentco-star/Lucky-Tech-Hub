@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard – Lucky Tech Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/admin1.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<!-- ================= SIDEBAR ================= -->
+<aside class="sidebar">
+  <div class="brand">
+    <img src="images/logo.png" alt="Lucky Tech Hub">
+    <span>Admin Panel</span>
+  </div>
+
+  <ul class="menu">
+    <li class="active" data-section="dashboard">
+      <i class="fas fa-chart-line"></i> Dashboard
+    </li>
+    <li data-section="ideas">
+      <i class="fas fa-lightbulb"></i> Tech Ideas
+    </li>
+    <li data-section="projects">
+      <i class="fas fa-diagram-project"></i> Projects
+    </li>
+    <li data-section="blogs">
+      <i class="fas fa-blog"></i> Blog Posts
+    </li>
+        <li data-section="analysis">
+      <i class="fas fa-chart-bar"></i> Analytics
+    </li>
+        <li data-section="media">
+      <i class="fas fa-images"></i> Media Manager
+    </li>
+    <li data-section="settings">
+      <i class="fas fa-cog"></i> Settings
+    </li>
+  </ul>
+
+  <button id="logoutBtn" class="logout">
+    <i class="fas fa-sign-out-alt"></i> Logout
+  </button>
+</aside>
+
+<!-- ================= MAIN ================= -->
+<main class="main">
+
+<!-- ===== TOP BAR ===== -->
+<header class="topbar">
+  <h1 id="sectionTitle">Dashboard</h1>
+  <div class="user">
+    <i class="fas fa-user-circle"></i> Admin
+  </div>
+</header>
+
+<!-- ===== DASHBOARD ===== -->
+<section id="dashboard" class="section active">
+  <div class="stats">
+    <div class="stat-card">
+      <h3 id="ideaCount">0</h3>
+      <p>Tech Ideas</p>
+    </div>
+    <div class="stat-card">
+      <h3 id="projectCount">0</h3>
+      <p>Projects</p>
+    </div>
+    <div class="stat-card">
+      <h3 id="blogCount">0</h3>
+      <p>Blog Posts</p>
+    </div>
+   
+ 
+  </div>
+</section>
+
+<!-- ===== TECH IDEAS ===== -->
+<section id="ideas" class="section">
+  <h2>Manage Tech Ideas</h2>
+
+  <form id="ideaForm" class="form">
+    <input id="ideaTitle" placeholder="Idea Title" required>
+    <input type="file" id="ideaImgUpload">
+    <input id="ideaVideo" placeholder="Optional Video URL">
+    <div id="ideaDesc" class="rich-text" contenteditable placeholder="Description"></div>
+    <button class="btn">Publish Idea</button>
+  </form>
+
+  <input class="search" placeholder="Search ideas..." oninput="filterCards('ideaList', this.value)">
+  <div id="ideaList" class="cards"></div>
+</section>
+
+<!-- ===== PROJECTS ===== -->
+<section id="projects" class="section">
+  <h2>Manage Projects</h2>
+
+  <form id="projectForm" class="form">
+    <input id="projectTitle" placeholder="Project Title" required>
+    <input type="file" id="projectImgUpload">
+    <textarea id="projectDesc" placeholder="Description"></textarea>
+    <select id="projectStatus">
+      <option>Live</option>
+      <option>In Progress</option>
+      <option>Concept</option>
+    </select>
+    <button class="btn">Publish Project</button>
+  </form>
+
+  <input class="search" placeholder="Search projects..." oninput="filterCards('projectList', this.value)">
+  <div id="projectList" class="cards"></div>
+</section>
+
+<!-- ===== BLOGS ===== -->
+<section id="blogs" class="section">
+  <h2>Manage Blog Posts</h2>
+
+  <form id="blogForm" class="form">
+    <input id="blogTitle" placeholder="Blog Title" required>
+    <input type="file" id="blogImgUpload">
+    <div id="blogDesc" class="rich-text" contenteditable placeholder="Content"></div>
+    <button class="btn">Publish Blog</button>
+  </form>
+
+  <input class="search" placeholder="Search blogs..." oninput="filterCards('blogList', this.value)">
+  <div id="blogList" class="cards"></div>
+</section>
+
+
+
+<!-- ===== ANALYSIS ===== -->
+<section id="analysis" class="section">
+ <h2>View Chart Analytics</h2>
+  <div class="analytics-card">
+    <h2>Content Analytics</h2>
+
+    <div class="chart-wrapper">
+      <canvas id="adminChart"></canvas>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ===== MEDIA MANAGER ===== -->
+<section id="media" class="section">
+  <h2>Media Library</h2>
+  <div id="mediaLibrary" class="media-grid">
+    <p>Uploaded images will appear here.</p>
+  </div>
+</section>
+
+
+
+
+
+<!-- ===== SETTINGS ===== -->
+<section id="settings" class="section">
+  <h2>Site Settings</h2>
+
+  <div class="settings-card">
+    <label for="siteName">Site Name</label>
+    <input id="siteName" type="text" placeholder="Lucky Tech Hub">
+    <small>Enter the name of your website.</small>
+  </div>
+
+  <div class="settings-card">
+    <label for="adminEmail">Admin Email</label>
+    <input id="adminEmail" type="email">
+    <small>Email for admin notifications and alerts.</small>
+  </div>
+
+  <div class="settings-card">
+    <label for="theme">Theme</label>
+    <select id="theme">
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+    </select>
+    <small>Select the default theme for the website.</small>
+  </div>
+
+  <div class="settings-card">
+    <label class="toggle-switch">
+      <input type="checkbox" id="maintenance">
+      <span class="slider"></span>
+      Maintenance Mode
+    </label>
+    <small>Enable maintenance mode to temporarily disable public access.</small>
+  </div>
+  
+  
+  <div class="settings-card">
+  <label class="toggle-switch" for="maintenanceEnd">
+    Maintenance End Time
+  </label>
+  <input type="datetime-local" id="maintenanceEnd">
+  <small>Set the date and time when maintenance mode should end.</small>
+</div>
+
+
+  <button class="btn" onclick="saveSettings()">Save Settings</button>
+</section>
+
+
+</main>
+
+
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script type="module" src="js/main.js"></script>
+
+<script type="module" src="js/admin1.js"></script>
+
+<script type="module">
+import { auth } from "./js/firebase.js";
+import { onAuthStateChanged } from
+"https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+onAuthStateChanged(auth, user => {
+  if (!user) {
+    window.location.href = "login.html";
+  }
+});
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects - Lucky Tech Hub</title>
+  <link rel="stylesheet" href="css/project.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo"><img src="images/logo.png" alt="Lucky Tech Hub Logo"></div>
+    <nav id="navbar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="tech-ideas.html">Tech Ideas</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html" class="admin-btn">Admin</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+    </nav>
+  </header>
+
+  <section class="projects">
+    <div class="container">
+      <h1>Real-world Projects</h1>
+      <div id="projectsContainer" class="cards-container"></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2026 Lucky Tech Hub</p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </footer>
+  <script type="module" src="js/firebase.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    const projects = JSON.parse(localStorage.getItem('projects')) || [
+      {title:'AI Chatbot',desc:'Live AI chatbot for customer support.',img:'images/ai-project.jpg',status:'Live'},
+      {title:'Cloud Dashboard',desc:'Monitoring cloud services.',img:'images/cloud-project.jpg',status:'In Progress'},
+      {title:'Mobile Game App',desc:'Fun mobile game project.',img:'images/mobile-project.jpg',status:'Concept'}
+    ];
+
+    const projectsContainer = document.getElementById('projectsContainer');
+    projects.forEach(p=>{
+      projectsContainer.innerHTML += `
+        <div class="card">
+          <img src="${p.img}" alt="${p.title}">
+          <h3>${p.title}</h3>
+          <p>${p.desc}</p>
+          <p><strong>Status:</strong> ${p.status}</p>
+        </div>`;
+    });
+  </script>
+
+
+</body>
+</html>
