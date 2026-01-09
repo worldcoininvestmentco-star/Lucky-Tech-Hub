@@ -1,0 +1,125 @@
+/* Full page setup */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Login Section */
+.login {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Login Container */
+.login .container {
+  background: #fff;
+  padding: 3rem 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  animation: fadeIn 1s ease forwards;
+  z-index: 1;
+}
+
+/* Gradient overlay (animated subtle tech glow) */
+.login .container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, #38bdf8, #0ea5e9, #6366f1, #f472b6);
+  animation: animateGradient 6s linear infinite;
+  z-index: 0;
+  opacity: 0.2;
+  transform: rotate(0deg);
+}
+
+/* Heading */
+.login .container h1 {
+  position: relative;
+  z-index: 1;
+  color: #0f172a;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+/* Form Inputs */
+.login form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.login input {
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  transition: all 0.3s ease;
+}
+
+.login input:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 10px rgba(56,189,248,0.3);
+  outline: none;
+}
+
+/* Button */
+.login .btn {
+  padding: 0.8rem 1rem;
+  border-radius: 50px;
+  border: none;
+  background: #38bdf8;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.login .btn:hover {
+  background: #0ea5e9;
+  transform: scale(1.05);
+}
+
+/* Fade-in animation for container */
+@keyframes fadeIn {
+  0% {opacity: 0; transform: translateY(-30px);}
+  100% {opacity: 1; transform: translateY(0);}
+}
+
+/* Gradient animation */
+@keyframes animateGradient {
+  0% {transform: rotate(0deg);}
+  50% {transform: rotate(180deg);}
+  100% {transform: rotate(360deg);}
+}
+
+/* Responsive */
+@media (max-width: 480px){
+  .login .container {
+    padding: 2rem 1.5rem;
+  }
+  .login .container h1 {
+    font-size: 1.5rem;
+  }
+}

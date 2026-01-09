@@ -1,0 +1,333 @@
+/* =====================
+   ROOT DESIGN TOKENS
+===================== */
+:root {
+  --bg-main: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-sidebar: #0f172a;
+  --bg-sidebar-hover: #1e293b;
+
+  --primary: #38bdf8;
+  --primary-dark: #0284c7;
+  --danger: #ef4444;
+
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --text-light: #e5e7eb;
+
+  --border: #e2e8f0;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+
+  --shadow-sm: 0 2px 8px rgba(0,0,0,.05);
+  --shadow-md: 0 10px 25px rgba(0,0,0,.08);
+  --shadow-lg: 0 20px 40px rgba(0,0,0,.12);
+
+  --transition: all .25s ease;
+}
+
+/* =====================
+   GLOBAL RESET
+===================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  background: var(--bg-main);
+  color: var(--text-main);
+  display: flex;
+  min-height: 100vh;
+}
+
+/* =====================
+   ADMIN SIDEBAR
+===================== */
+.admin-sidebar {
+  width: 270px;
+  background: linear-gradient(180deg, #020617, var(--bg-sidebar));
+  color: var(--text-light);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  padding-top: 1rem;
+}
+
+.admin-sidebar h2 {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 700;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.admin-sidebar ul {
+  list-style: none;
+  padding: 1rem 0;
+  flex: 1;
+}
+
+.admin-sidebar li {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  padding: .9rem 1.6rem;
+  cursor: pointer;
+  color: #cbd5f5;
+  transition: var(--transition);
+}
+
+.admin-sidebar li i {
+  font-size: 1.05rem;
+}
+
+.admin-sidebar li:hover {
+  background: var(--bg-sidebar-hover);
+  color: #fff;
+}
+
+.admin-sidebar li.active {
+  background: linear-gradient(90deg, var(--primary), transparent);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Logout Button */
+#logoutBtn {
+  margin: 1rem;
+  padding: .75rem;
+  border-radius: var(--radius-md);
+  border: none;
+  background: var(--danger);
+  color: #fff;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+#logoutBtn:hover {
+  opacity: .9;
+}
+
+/* =====================
+   MAIN CONTENT
+===================== */
+.admin-main {
+  margin-left: 270px;
+  padding: 1.8rem 2rem;
+  width: 100%;
+}
+
+/* =====================
+   SECTION VIEWS
+===================== */
+.admin-view {
+  display: none;
+  animation: fadeUp .35s ease;
+}
+
+.admin-view.active {
+  display: block;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* =====================
+   STATS CARDS
+===================== */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.4rem;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  padding: 1.6rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.stat-card span {
+  font-size: 2.2rem;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* =====================
+   FORMS
+===================== */
+form label {
+  font-weight: 500;
+  margin-top: .8rem;
+  display: block;
+  margin-bottom: .3rem;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="file"],
+form textarea,
+form select {
+  width: 100%;
+  padding: .7rem .8rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  font-size: .95rem;
+  transition: var(--transition);
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(56,189,248,.2);
+}
+
+.rich-text {
+  min-height: 130px;
+  border: 1px solid var(--border);
+  padding: .8rem;
+  border-radius: var(--radius-sm);
+  font-size: .95rem;
+}
+
+.rich-text:empty:before {
+  content: attr(placeholder);
+  color: var(--text-muted);
+}
+
+/* Checkbox */
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin: .8rem 0;
+}
+
+.checkbox input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+}
+
+/* =====================
+   BUTTONS
+===================== */
+.btn {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #fff;
+  border: none;
+  padding: .75rem;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.btn:hover {
+  opacity: .9;
+}
+
+/* =====================
+   CARDS GRID
+===================== */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.4rem;
+  margin-top: 1rem;
+}
+
+/* =====================
+   INDIVIDUAL CARD
+===================== */
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+.card h3 {
+  font-size: 1.05rem;
+}
+
+.card p {
+  font-size: .9rem;
+  color: var(--text-muted);
+}
+
+/* =====================
+   MEDIA MANAGER GRID
+===================== */
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.media-grid img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 900px) {
+  .admin-sidebar {
+    width: 220px;
+  }
+  .admin-main {
+    margin-left: 220px;
+  }
+}
+
+@media (max-width: 700px) {
+  .admin-sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+  .admin-main {
+    margin-left: 0;
+  }
+}
